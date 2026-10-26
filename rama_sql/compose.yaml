@@ -11,6 +11,12 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql
 
+  python_final:
+    build: .
+    volumes:
+      - .:python_final
+
 
 volumes:
   postgres_data:
+  python_final:
