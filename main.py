@@ -16,23 +16,23 @@ except Exception as e:
 now = datetime.now(timezone.utc)
 
 personajes = [
-    (1,  "Azulejo Prime",     "Alive",   "Robot", "Glazing unit",   "Genderless", "Castellón Kiln-7",     "Planta de esmaltado", None, None, now),
-    (2,  "Terracota Ruiz",    "Alive",   "Human", "",               "Female",     "Onda",                 "Taller de prensado",  None, None, now),
-    (3,  "Gres el Vigilante", "Alive",   "Robot", "Security bot",   "Male",       "Castellón Kiln-7",     "Almacén central",     None, None, now),
-    (4,  "Zorblax Mosaico",   "unknown", "Alien", "Silicate being", "unknown",    "Nebulosa Caolín",      "Horno túnel",         None, None, now),
-    (5,  "Porcelana Vidal",   "Alive",   "Human", "",               "Female",     "Vila-real",            "Laboratorio de I+D",  None, None, now),
-    (6,  "Klinker-9",         "Dead",    "Robot", "Kiln drone",     "Genderless", "Castellón Kiln-7",     "Desguace",            None, None, now),
-    (7,  "Mayólica Brenn",    "Alive",   "Alien", "Shapeshifter",   "Female",     "Nebulosa Caolín",      "Showroom",            None, None, now),
-    (8,  "Jaume Engobe",      "Alive",   "Human", "",               "Male",       "L'Alcora",             "Planta de esmaltado", None, None, now),
-    (9,  "Esmalte Qor",       "unknown", "Alien", "Crystal mind",   "unknown",    "Anillo de Feldespato", "Horno túnel",         None, None, now),
-    (10, "Rakú la Errante",   "Dead",    "Ghost", "Kiln spirit",    "Female",     "Horno anagama",        "Desconocida",         None, None, now),
+    ("Azulejo Prime",     "Alive",   "Robot", "Glazing unit",   "Genderless", "Castellón Kiln-7",     "Planta de esmaltado", None, None),
+    ("Terracota Ruiz",    "Alive",   "Human", "",               "Female",     "Onda",                 "Taller de prensado",  None, None),
+    ("Gres el Vigilante", "Alive",   "Robot", "Security bot",   "Male",       "Castellón Kiln-7",     "Almacén central",     None, None),
+    ("Zorblax Mosaico",   "unknown", "Alien", "Silicate being", "unknown",    "Nebulosa Caolín",      "Horno túnel",         None, None),
+    ("Porcelana Vidal",   "Alive",   "Human", "",               "Female",     "Vila-real",            "Laboratorio de I+D",  None, None),
+    ("Klinker-9",         "Dead",    "Robot", "Kiln drone",     "Genderless", "Castellón Kiln-7",     "Desguace",            None, None),
+    ("Mayólica Brenn",    "Alive",   "Alien", "Shapeshifter",   "Female",     "Nebulosa Caolín",      "Showroom",            None, None),
+    ("Jaume Engobe",      "Alive",   "Human", "",               "Male",       "L'Alcora",             "Planta de esmaltado", None, None),
+    ("Esmalte Qor",       "unknown", "Alien", "Crystal mind",   "unknown",    "Anillo de Feldespato", "Horno túnel",         None, None),
+    ("Rakú la Errante",   "Dead",    "Ghost", "Kiln spirit",    "Female",     "Horno anagama",        "Desconocida",         None, None),
 ]
 
 query = """
     INSERT INTO characters
-        (id, name, status, species, type, gender, origin_name,
-         location_name, image, url, created)
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        (name, status, species, type, gender, origin_name,
+         location_name, image, url)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
     ON CONFLICT (id) DO NOTHING;
 """
 cur.executemany(query, personajes)
