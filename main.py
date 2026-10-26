@@ -1,5 +1,7 @@
-import os, psycopg
+import os
 from datetime import datetime, timezone
+
+import psycopg
 
 url = os.getenv("DATABASE_URL")
 

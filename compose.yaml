@@ -14,7 +14,7 @@ services:
   python_final:
     build: .
     volumes:
-      - .:python_final
+      - .:/python_final
 
 
 volumes:
