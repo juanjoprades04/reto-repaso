@@ -1,0 +1,14 @@
+CREATE TABLE characters (
+    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    status VARCHAR,
+    species VARCHAR,
+    type VARCHAR,
+    gender VARCHAR,
+    origin_name VARCHAR,
+    location_name VARCHAR,
+    image VARCHAR,
+    url VARCHAR,
+    created TIMESTAMPZ DEFAULT NOW()
+);
+
