@@ -15,6 +15,7 @@ services:
     build: .
     volumes:
       - .:/python_final
+    env_file: .env
 
 
 volumes:
